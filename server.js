@@ -23,6 +23,7 @@ app.use((req, res, next)=>{
 // app.use((req, res, next)=>{
 //   res.render('maintenance.hbs');
 // });
+
 hbs.registerHelper('getCurrentYear', ()=>{
   return new Date().getFullYear();
 });
@@ -45,6 +46,12 @@ app.get('/about', (req, res)=>{
 app.get('/bad', (req,res)=>{
   res.send({errorMessage: 'Bad request'});
 });
+app.get('/portfolio', (req, res)=>{
+  res.render('portfolio.hbs', {
+    pageTitle: 'Portfolio'
+  })
+});
+
 app.listen(port, ()=>{
   console.log(`server is up on port ${port}`);
 });
